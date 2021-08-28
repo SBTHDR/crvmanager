@@ -22,7 +22,7 @@
                     <td>{{ developer.email }}</td>
                     <td>{{ developer.phone }}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary">Edit</button>
+                        <router-link :to="{ name: 'edit', params: { id: developer.id } }" class="btn btn-sm btn-primary">Edit</router-link>
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
                 </tr>

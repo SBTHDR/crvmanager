@@ -48,16 +48,29 @@ class DeveloperController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Developer  $developer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Developer $developer)
+     public function edit($id)
+     {
+        $developers = Developer::findOrFail($id);
+        return response()->json($developers);
+     }
+
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ]);
+        
+        $developer = Developer::findOrFail($id);
+
+        $developer->name = $request->name;
+        $developer->email = $request->email;
+        $developer->phone = $request->phone;
+
+        $developer->save();
+
+        return response()->json($developer);
     }
 
     /**

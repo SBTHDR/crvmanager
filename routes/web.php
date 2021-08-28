@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/create', [DeveloperController::class, 'store']);
 Route::get('/index', [DeveloperController::class, 'index']);
+Route::post('/create', [DeveloperController::class, 'store']);
+Route::get('/edit/{id}', [DeveloperController::class, 'edit']);
+Route::post('/edit/{id}', [DeveloperController::class, 'update']);
 
 Route::get('/{any?}', function () {
     return view('welcome');
-});
+})->where('any', '.*');
 
 

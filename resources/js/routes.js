@@ -1,5 +1,6 @@
 import WelcomePage from './components/WelcomePage.vue'
 import Create from './components/Create.vue'
+import Edit from './components/Edit.vue'
 
 export default {
     mode: 'history',
@@ -13,6 +14,11 @@ export default {
         {
             path: '/create',
             component: Create,
+        },
+        {
+            name: 'edit',
+            path: '/edit/:id',
+            component: Edit,
         }
     ]
 }
